@@ -75,7 +75,17 @@ public class TransactionTest {
         WebElement address = driver.findElement(By.xpath(XPATH_SHIPMENT_ADDRESS));
         assertNotNull(address);
         assertEquals(shipmentAddress, address);
-
+        
+         //date
+        WebElement date = driver.findElement(By.xpath(XPATH_DATE_ORDER));
+        assertNotNull(date);
+        assertEquals(getToday(), date);
     }
+    
+    private String getToday() {
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        return df.format(new Date());
+    }
+
 
 }
